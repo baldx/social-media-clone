@@ -1,24 +1,19 @@
+import Link from './Link.jsx';
+import ElderBond from '../assets/ElderBondLogo.png';
+
 function Navbar() {
     return (
         <>
         <nav>
-            <section className="tab">
-            <i className="material-icons">home</i>
-                Home
-            </section>
+            <h1 className="title">Elder bond</h1>
+            
+            <Link icon={"home"} title={"Home"} />
 
-            <section className="tab">
-            <i className="material-icons">explore</i>
-                Explore
-            </section>
-            <section className="tab">
-            <i className="material-icons">chat_bubble</i>
-                Messages
-            </section>
-            <section className="tab">
-            <i className="material-icons">account_circle</i>
-                Profile
-            </section>
+            <Link icon={"explore"} title={"Explore"} />
+
+            <Link icon={"chat_bubble"} title={"Messages"} />
+
+            <Link icon={"account_circle"} title={"Profile"} />
         </nav>
         </>
     )
