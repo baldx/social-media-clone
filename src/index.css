@@ -36,4 +36,13 @@ nav img {
 body, #root {
     margin: 0;
     font-family: 'Roboto Slab', serif;
+    background: var(--dark-teal);
+}
+
+#root {
+    display: flex;
+}
+
+aside {
+    width: 20vw;
 }
