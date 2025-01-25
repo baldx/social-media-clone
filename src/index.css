@@ -1,0 +1,24 @@
+i {
+    color: black;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+nav {
+    height: 100vh;
+    width: 15vw;
+    background: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+body, #root {
+    margin: 0;
+}
