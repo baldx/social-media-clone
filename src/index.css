@@ -11,7 +11,7 @@ nav section {
     color: whitesmoke;
 }
 
-section {
+nav section {
     display: flex;
     align-items: center;
     gap: 1em;
