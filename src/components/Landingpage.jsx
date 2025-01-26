@@ -40,7 +40,7 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <section className="story-full">
+        <section className="story-full hidden">
           <div className="content">
             <div className="close-btn">
               <svg
