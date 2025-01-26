@@ -1,3 +1,6 @@
+import DefaultPfp from '../assets/default.png';
+import Stories from './Stories';
+
 export default function LandingPage() {
     return (
         <>
@@ -10,44 +13,7 @@ export default function LandingPage() {
                     <hr />
                 </section>
 
-                <section className="stories">
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                    <div className="user-example">
-                        <img src="profile" alt="" />
-                        <p>Sigmaboy</p>
-                    </div>
-                </section>
+                <Stories />
 
                 <section className="feed">
                     <div className="top-feed">
