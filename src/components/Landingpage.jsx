@@ -1,7 +1,47 @@
+import { useState } from "react";
 import DefaultPfp from "../assets/default.png";
 import ElderBond from "../assets/ElderBondLogo.png";
 
 export default function LandingPage() {
+
+  const [storyStatus, setStoryStatus] = useState('hidden')
+
+  const openStory = () => {
+    setStoryStatus('active');
+  }
+
+  const closeStory = () => {
+    setStoryStatus('hidden');
+  }
+
+  const allStories = [
+    {
+      thumbURL: DefaultPfp,
+      imageURL: ElderBond,
+      title: "Sigma1"
+    },
+    {
+      thumbURL: DefaultPfp,
+      imageURL: ElderBond,
+      title: "Sigma2"
+    },
+    {
+      thumbURL: DefaultPfp,
+      imageURL: ElderBond,
+      title: "Sigma3"
+    },
+    {
+      thumbURL: DefaultPfp,
+      imageURL: ElderBond,
+      title: "Sigma4"
+    },
+    {
+      thumbURL: DefaultPfp,
+      imageURL: ElderBond,
+      title: "Sigma5"
+    },
+  ]
+
   return (
     <>
       <main className="main-page">
@@ -14,35 +54,17 @@ export default function LandingPage() {
         </section>
 
         <div className="story-container">
-          <div className="content">
-            <img src={DefaultPfp} alt="" />
-          </div>
-          <div className="content">
-            <img src={DefaultPfp} alt="" />
-          </div>
-          <div className="content">
-            <img src={DefaultPfp} alt="" />
-          </div>
-          <div className="content">
-            <img src={DefaultPfp} alt="" />
-          </div>
-          <div className="content">
-            <img src={DefaultPfp} alt="" />
-          </div>
-          <div className="content">
-            <img src={DefaultPfp} alt="" />
-          </div>
-          <div className="content">
-            <img src={DefaultPfp} alt="" />
-          </div>
-          <div className="content">
-            <img src={DefaultPfp} alt="" />
-          </div>
+          {allStories.map(e => {
+            return (
+            <div className="content" onClick={openStory}>
+              <img src={e.thumbURL}/>
+            </div>
+          )})}
         </div>
 
-        <section className="story-full hidden">
+        <section className={"story-full " + storyStatus}>
           <div className="content">
-            <div className="close-btn">
+            <div className="close-btn" onClick={closeStory}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -100,45 +122,130 @@ export default function LandingPage() {
         </section>
 
         <section className="feed">
+          <hr />
           <div className="top-feed">
-            <hr />
-            <img src="profile" />
-            <p>name</p>
-            <p>*</p>
-            <p>2d</p>
+            <img src={DefaultPfp} className="post-pfp"/>
+            <p>Name</p>
+            <p>•</p>
+            <p>2 timmar</p>
           </div>
 
-          <div className="main-feed">
-            <img src="image" />
-          </div>
+          <img src={DefaultPfp} className="main-feed" />
 
           <div className="bottom-feed">
             <div className="buttons">
               <div className="buttons-left">
-                <button>
-                  <img src="" alt="" />
-                </button>
-                <button>
-                  <img src="" alt="" />
-                </button>
-                <button>
-                  <img src="" alt="" />
-                </button>
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
               </div>
               <div className="buttons-right">
-                <button>
-                  <img src="" alt="" />
-                </button>
+                <i className="material-icons">bookmark</i>
               </div>
             </div>
             <div className="feed-info">
-              <p>65 likes</p>
-              <p>
-                description: Lorem ipsum dolor sit amet consectetur, adipisicing
+              <div className="likes">65 likes</div>
+              <div className="description">
+                Lorem ipsum dolor sit amet consectetur, adipisicing
                 elit. Modi recusandae sint soluta hic tempora accusantium
                 obcaecati, fuga, possimus cumque laboriosam error repudiandae
-                corporis ducimus dicta voluptate aspernatur magni vitae nisi?
-              </p>
+                corporis ducimus dicta voluptate aspernatur magni vitae nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="feed">
+          <hr />
+          <div className="top-feed">
+            <img src={DefaultPfp} className="post-pfp"/>
+            <p>Name</p>
+            <p>•</p>
+            <p>2 timmar</p>
+          </div>
+
+          <img src={DefaultPfp} className="main-feed" />
+
+          <div className="bottom-feed">
+            <div className="buttons">
+              <div className="buttons-left">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+              </div>
+              <div className="buttons-right">
+                <i className="material-icons">bookmark</i>
+              </div>
+            </div>
+            <div className="feed-info">
+              <div className="likes">65 likes</div>
+              <div className="description">
+                Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Modi recusandae sint soluta hic tempora accusantium
+                obcaecati, fuga, possimus cumque laboriosam error repudiandae
+                corporis ducimus dicta voluptate aspernatur magni vitae nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="feed">
+          <hr />
+          <div className="top-feed">
+            <img src={DefaultPfp} className="post-pfp"/>
+            <p>Name</p>
+            <p>•</p>
+            <p>2 timmar</p>
+          </div>
+
+          <img src={DefaultPfp} className="main-feed" />
+
+          <div className="bottom-feed">
+            <div className="buttons">
+              <div className="buttons-left">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+              </div>
+              <div className="buttons-right">
+                <i className="material-icons">bookmark</i>
+              </div>
+            </div>
+            <div className="feed-info">
+              <div className="likes">65 likes</div>
+              <div className="description">
+                Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Modi recusandae sint soluta hic tempora accusantium
+                obcaecati, fuga, possimus cumque laboriosam error repudiandae
+                corporis ducimus dicta voluptate aspernatur magni vitae nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="feed">
+          <hr />
+          <div className="top-feed">
+            <img src={DefaultPfp} className="post-pfp"/>
+            <p>Name</p>
+            <p>•</p>
+            <p>2 timmar</p>
+          </div>
+
+          <img src={DefaultPfp} className="main-feed" />
+
+          <div className="bottom-feed">
+            <div className="buttons">
+              <div className="buttons-left">
+                <i class="material-icons">favorite</i>
+                <i class="material-icons">comment</i>
+              </div>
+              <div className="buttons-right">
+                <i className="material-icons">bookmark</i>
+              </div>
+            </div>
+            <div className="feed-info">
+              <div className="likes">65 likes</div>
+              <div className="description">
+                Lorem ipsum dolor sit amet consectetur, adipisicing
+                elit. Modi recusandae sint soluta hic tempora accusantium
+                obcaecati, fuga, possimus cumque laboriosam error repudiandae
+                corporis ducimus dicta voluptate aspernatur magni vitae nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?
+              </div>
             </div>
           </div>
         </section>
