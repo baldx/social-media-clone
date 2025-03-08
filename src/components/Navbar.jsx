@@ -5,7 +5,7 @@ function Navbar() {
     return (
         <>
         <nav>
-            <h1 className="title">Elder bond</h1>
+            <div id="title">Elder bond</div>
             
             <Link icon={"home"} title={"Home"} />
 

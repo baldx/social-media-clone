@@ -2,9 +2,9 @@ function Link({icon, title}) {
 
     return (
         <>
-            <section className="tab">
-            <i className="material-icons">{icon}</i>
-                <h1>{title}</h1>
+            <section id="tab">
+            <i className="material-icons" id="material-icons">{icon}</i>
+                <a href="">{title}</a>
             </section>
         </>
     )

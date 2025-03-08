@@ -7,11 +7,11 @@
     --beige: #ECDFCC;
 }
 
-nav section {
+nav #tab {
     color: whitesmoke;
 }
 
-nav section {
+nav #tab {
     display: flex;
     align-items: center;
     gap: 1em;
@@ -24,6 +24,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1em;
     height: 100vh;
     position: fixed;
 }
@@ -31,7 +32,6 @@ nav {
 body, #root {
     margin: 0;
     font-family: 'Roboto Slab', serif;
-    background: var(--dark-teal);
     height: fit-content;
 }
 
@@ -41,4 +41,15 @@ body, #root {
 
 aside {
     width: 20vw;
+}
+
+nav #title {
+    font-size: 2em;
+    margin-top: 1em;
+}
+
+nav a {
+    color: whitesmoke;
+    font-size: 1.6em;
+    text-decoration: none;
 }
