@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import './App.css'
 import LandingPage from './components/Landingpage'
 import Navbar from './components/Navbar'
 import LogIn from './components/Login';
+import Signup from './components/Signup';
+import './App.css'
+
 
 function App() {
-  const [login, setLogin] = useState(false);
+  const status = ["notSignedUp", "notLoggedIn", "Logged in"]
+  const [login, setLogin] = useState(status[0]);
 
-  if (login) {
+  if (login === status[2]) {
     return (
       <>
         <Navbar/>
@@ -15,10 +18,17 @@ function App() {
         <aside></aside>
       </>
       )
-  } else {
+  } else if (login === status[1]) {
     return (
       <>
         <LogIn />
+      </>
+    )
+  }
+  else if (login === status[0]) {
+    return (
+      <>
+        <Signup />
       </>
     )
   }
