@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Login.css';
 
-function LogIn() {
+function LogIn() { //component for the form input from bootstrap
     
     return (
         <div className="log-in-form">

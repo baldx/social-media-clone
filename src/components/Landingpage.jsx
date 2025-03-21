@@ -4,17 +4,17 @@ import ElderBond from "../assets/ElderBondLogo.png";
 
 export default function LandingPage() {
 
-  const [storyStatus, setStoryStatus] = useState('hidden')
+  const [storyStatus, setStoryStatus] = useState('hidden') //current status of the story
 
-  const openStory = () => {
+  const openStory = () => { //adds class to show story
     setStoryStatus('active');
   }
 
-  const closeStory = () => {
+  const closeStory = () => { //adds class to hide story
     setStoryStatus('hidden');
   }
 
-  const allStories = [
+  const allStories = [ //displays all stories
     {
       thumbURL: DefaultPfp,
       imageURL: ElderBond,
@@ -45,7 +45,7 @@ export default function LandingPage() {
   return (
     <>
       <main className="main-page">
-        <section className="top">
+        <section className="top"> 
           <div className="group">
             <div className="currently-showing true">For you</div>
             <div className="currently-showing">Following</div>
@@ -53,7 +53,7 @@ export default function LandingPage() {
           <hr />
         </section>
 
-        <div className="story-container">
+        <div className="story-container"> {/* display stories */}
           {allStories.map(e => {
             return (
             <div className="content" onClick={openStory}>
@@ -62,7 +62,7 @@ export default function LandingPage() {
           )})}
         </div>
 
-        <section className={"story-full " + storyStatus}>
+        <section className={"story-full " + storyStatus}> {/* display the story image*/}
           <div className="content">
             <div className="close-btn" onClick={closeStory}>
               <svg
@@ -121,7 +121,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="feed">
+        <section className="feed"> {/* creates a post in the main page */}
           <hr />
           <div className="top-feed">
             <img src={DefaultPfp} className="post-pfp"/>
@@ -132,7 +132,7 @@ export default function LandingPage() {
 
           <img src={DefaultPfp} className="main-feed" />
 
-          <div className="bottom-feed">
+          <div className="bottom-feed"> {/* adds the bottom part of the feed allowing the user to interact */}
             <div className="buttons">
               <div className="buttons-left">
                 <i class="material-icons">favorite</i>

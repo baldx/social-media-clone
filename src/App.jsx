@@ -7,10 +7,10 @@ import './App.css'
 
 
 function App() {
-  const status = ["notSignedUp", "notLoggedIn", "Logged in"]
-  const [login, setLogin] = useState(status[0]);
+  const status = ["notSignedUp", "notLoggedIn", "Logged in"]; // options to display different parts of the webbpage
+  const [login, setLogin] = useState(status[2]); //sets the status if user is logged in
 
-  if (login === status[2]) {
+  if (login === status[2]) { //if user is logged in display the page
     return (
       <>
         <Navbar/>
@@ -18,14 +18,14 @@ function App() {
         <aside></aside>
       </>
       )
-  } else if (login === status[1]) {
+  } else if (login === status[1]) { //if not logged in display login page
     return (
       <>
         <LogIn />
       </>
     )
   }
-  else if (login === status[0]) {
+  else if (login === status[0]) { //if not signed up then display sign up page
     return (
       <>
         <Signup />

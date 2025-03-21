@@ -2,7 +2,7 @@ import Link from './Link.jsx';
 import ElderBond from '../assets/ElderBondLogo.png';
 
 function Navbar() {
-    return (
+    return ( //code to add the links to the navbar
         <>
         <nav>
             <div id="title">Elder bond</div>

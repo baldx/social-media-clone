@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Login.css';
 
-function Signup() {
+function Signup() { //bootstrap code for sign up
     
     return (
         <div className="log-in-form">
