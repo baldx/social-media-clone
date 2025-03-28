@@ -8,7 +8,7 @@ import './App.css'
 
 function App() {
   const status = ["notSignedUp", "notLoggedIn", "Logged in"]; // options to display different parts of the webbpage
-  const [login, setLogin] = useState(status[2]); //sets the status if user is logged in
+  const [login, setLogin] = useState(status[0]); //sets the status if user is logged in
 
   if (login === status[2]) { //if user is logged in display the page
     return (
