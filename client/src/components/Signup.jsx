@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Login.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios'; //package that simplifies fetching data from APIs and handling requests and responses
 import { useNavigate } from 'react-router-dom';
 
@@ -12,6 +12,12 @@ function Signup() { //bootstrap code for sign up
     const [message, setMessage] = useState("");
     const navigate = useNavigate(); //used for redirecting user
 
+  useEffect(() => { //redirects user when page started if user has already visited the page. //? same code for when doing log in page
+    const user = localStorage.getItem("user"); //creates a variable in localstorage
+    if (user) navigate("/feed"); //navigates if user returns 
+  },[navigate]);
+
+
     const handleSubmit = async (e) => {
         e.preventDefault(); //prevents default  re loading of page
         try {
@@ -20,7 +26,8 @@ function Signup() { //bootstrap code for sign up
           console.log(response);
 
           if (response.status === 201) {
-            setTimeout(() => navigate('/'), 5000); //route user after 5 seconds to main page
+            setTimeout(() => navigate('/feed'), 5000); //route user after 5 seconds to main page
+            localStorage.setItem("user", JSON.stringify({ username })); //store user information in local storage
           }
           
         } catch (error) { //error handling
