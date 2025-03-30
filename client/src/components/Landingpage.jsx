@@ -71,7 +71,7 @@ export default function LandingPage() {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="#fff" //color
-                class="size-6"
+                className="size-6"
               >
                 <path
                   stroke-linecap="round"
@@ -88,7 +88,7 @@ export default function LandingPage() {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="#fff"
-                class="size-6"
+                className="size-6"
               >
                 <path
                   stroke-linecap="round"
@@ -107,7 +107,7 @@ export default function LandingPage() {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="#fff"
-                class="size-6"
+                className="size-6"
               >
                 <path
                   stroke-linecap="round"
@@ -135,8 +135,8 @@ export default function LandingPage() {
           <div className="bottom-feed"> {/* adds the bottom part of the feed allowing the user to interact */}
             <div className="buttons">
               <div className="buttons-left">
-                <i class="material-icons">favorite</i>
-                <i class="material-icons">comment</i>
+                <i className="material-icons">favorite</i>
+                <i className="material-icons">comment</i>
               </div>
               <div className="buttons-right">
                 <i className="material-icons">bookmark</i>
@@ -167,8 +167,8 @@ export default function LandingPage() {
           <div className="bottom-feed">
             <div className="buttons">
               <div className="buttons-left">
-                <i class="material-icons">favorite</i>
-                <i class="material-icons">comment</i>
+                <i className="material-icons">favorite</i>
+                <i className="material-icons">comment</i>
               </div>
               <div className="buttons-right">
                 <i className="material-icons">bookmark</i>
@@ -199,8 +199,8 @@ export default function LandingPage() {
           <div className="bottom-feed">
             <div className="buttons">
               <div className="buttons-left">
-                <i class="material-icons">favorite</i>
-                <i class="material-icons">comment</i>
+                <i className="material-icons">favorite</i>
+                <i className="material-icons">comment</i>
               </div>
               <div className="buttons-right">
                 <i className="material-icons">bookmark</i>
