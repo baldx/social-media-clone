@@ -8,7 +8,7 @@ import ErrorPage from './components/ErrorPage'; // Error Page Component
 const Router = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/feed",
       element: (
         <>
           <Navbar /> {/* navbar is always visible */}
@@ -22,7 +22,7 @@ const Router = () => {
         element: <Login />,
     },
     {
-        path: "/signup",//adds signup path
+        path: "/",//adds signup path
         element: <Signup />
     }
   ]);
