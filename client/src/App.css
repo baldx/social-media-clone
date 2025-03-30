@@ -236,3 +236,18 @@ hr {
     overflow: hidden;
     margin-bottom: 1em;
 }
+
+.log-in-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-message {
+    font-size: 2em;
+    font-weight: 700;
+    height: 50px;
+    width: 100vw;
+    text-align: center;
+}
