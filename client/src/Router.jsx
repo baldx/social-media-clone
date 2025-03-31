@@ -18,11 +18,11 @@ const Router = () => {
       errorElement: <ErrorPage />, //adds error page if something went wrong
     },
     {
-        path: "/login", //adds login path
+        path: "/", //adds login path
         element: <Login />,
     },
     {
-        path: "/",//adds signup path
+        path: "/signup",//adds signup path
         element: <Signup />
     }
   ]);
