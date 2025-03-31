@@ -39,27 +39,51 @@ const User = mongoose.model('User', userSchema);
 //signup endpoint
 app.post('/signup', async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, password } = req.body; //get username and password request
 
-        console.log('Received signup request:', { username, password });
+        console.log('Received signup request:', { username, password }); //logs username and password
 
 
         const hashedPassword = await bcrypt.hash(password, 10); //hash password
         const newUser = new User({ username, password: hashedPassword });//create new user object
         
-        const existingUser = await User.findOne({ username });
+        const existingUser = await User.findOne({ username }); //finds a document containing with username
 
-        if (existingUser) {
-            console.log('Username already exists:', username);
-            return res.status(409).json({ error: 'Username already exists' });
+        if (existingUser) { //checks if user exists
+            console.log('Username already exists:', username); //logs username
+            return res.status(409).json({ error: 'Username already exists' }); //sends error with status code 409
         }
 
         await newUser.save();//save user to database
-        res.status(201).json({ message: 'User created successfully' });
-    } catch (error) {
-        res.status(500).json({ error: 'Error creating user' });
-        console.log(error);
+        res.status(201).json({ message: 'User created successfully' }); //sends message with status code 201
+    } catch (error) { 
+        res.status(500).json({ error: 'Error creating user' }); //sends error with status code 500
+        console.log(error); //logs error
+    }
+});
+
+//login in endpoint
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body; //gets username and password from the form
+
+        if (!username || !password) return res.status(404).json({ message: "Username and password required "}) //checks if username and password fields are empty
+
+
+        const user = await User.findOne({ username }); //finds user with username
+
+
+        if (!user) return res.status(404).json({ message: "User not found"}); //if username doesnt exist then display error
+
+
+        const isMatch = await bcrypt.compare(password, user.password); //compares hashed password with users password and returns a bool
+
+
+        if (!isMatch) return res.status(401).json({ message: "Invalid password "}); //if it is not a match return invalid password
         
+        res.status(201).json({ message: "Login successful", user: { username: user.username } }); //return message with status code 201
+    } catch (error) {
+        res.status(500).json({ error: 'Something went wrong', error }); //logs error
     }
 });
 
