@@ -7,6 +7,10 @@
     --beige: #ECDFCC;
 }
 
+body {
+    overflow-x: hidden  ;
+}
+
 nav #tab {
     color: whitesmoke;
 }
@@ -19,7 +23,7 @@ nav #tab {
 }
 
 nav {
-    width: 200px;
+    width: 17vw;
     background: var(--gray);
     display: flex;
     flex-direction: column;
@@ -52,4 +56,26 @@ nav a {
     color: whitesmoke;
     font-size: 1.6em;
     text-decoration: none;
+}
+
+footer {
+    background: var(--beige);
+    height: 12vh;
+    font-size: 4em;
+    width: 81.8vw;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer div {
+    font-size: 2rem;
+    height: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
