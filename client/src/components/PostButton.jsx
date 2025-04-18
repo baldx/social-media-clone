@@ -1,4 +1,5 @@
-import FeedForm from "./FeedForm"
+import FeedForm from "./FeedForm";
+
 
 export default function PostFooter() {
 
@@ -8,7 +9,7 @@ export default function PostFooter() {
 
     return (
         <>
-            <FeedForm></FeedForm>
+            <FeedForm />
             <footer>
                 <button className="footer-container" onClick={onClick}>
                     +
