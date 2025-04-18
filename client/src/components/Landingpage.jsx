@@ -1,6 +1,8 @@
 import { useState } from "react";
 import DefaultPfp from "../assets/default.png";
 import ElderBond from "../assets/ElderBondLogo.png";
+import PostFooter from "./PostButton";
+
 
 export default function LandingPage() {
 
@@ -249,6 +251,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+        <PostFooter/>
       </main>
     </>
   );

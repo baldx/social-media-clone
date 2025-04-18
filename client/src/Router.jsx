@@ -4,6 +4,7 @@ import Login from './components/Login'; // Login Component
 import Signup from './components/Signup'; // Signup Component
 import Navbar from './components/Navbar'; // Common Navbar Component
 import ErrorPage from './components/ErrorPage'; // Error Page Component
+import PostFooter from './components/PostButton';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -13,6 +14,7 @@ const Router = () => {
         <>
           <Navbar /> {/* navbar is always visible */}
           <LandingPage /> {/* landingPage component with Stories and Link */}
+          
         </>
       ),
       errorElement: <ErrorPage />, //adds error page if something went wrong
