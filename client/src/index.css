@@ -23,7 +23,7 @@ nav #tab {
 }
 
 nav {
-    width: 17vw;
+    width: 17%;
     background: var(--gray);
     display: flex;
     flex-direction: column;
@@ -62,7 +62,7 @@ footer {
     background: var(--beige);
     height: 12vh;
     font-size: 4em;
-    width: 81.8vw;
+    width: 83%;
     position: fixed;
     bottom: 0px;
     right: 0px;
@@ -79,3 +79,4 @@ footer div {
     justify-content: center;
     align-items: center;
 }
+
