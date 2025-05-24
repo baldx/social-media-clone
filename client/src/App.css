@@ -191,8 +191,9 @@ hr {
 }
 
 .main-feed {
-    height: 50vh;
+    height: 38vh;
     object-fit: cover;
+    width: 35vw;
 }
 
 .buttons {
