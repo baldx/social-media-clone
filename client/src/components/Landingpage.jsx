@@ -2,11 +2,15 @@ import { useState } from "react";
 import DefaultPfp from "../assets/default.png";
 import ElderBond from "../assets/ElderBondLogo.png";
 import PostFooter from "./PostButton";
+import axios from "axios";
+import { useEffect } from "react";
 
 
 export default function LandingPage() {
 
   const [storyStatus, setStoryStatus] = useState('hidden') //current status of the story
+  const [posts, setPosts] = useState([]);
+
 
   const openStory = () => { //adds class to show story
     setStoryStatus('active');
@@ -15,6 +19,21 @@ export default function LandingPage() {
   const closeStory = () => { //adds class to hide story
     setStoryStatus('hidden');
   }
+
+  useEffect(() => { //fetches posts
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => { //function to get the posts
+    try {
+      const response = await axios.get('http://localhost:5000/feed'); //gets posts from /feed endpoint
+      setPosts(response.data); //sets data to array
+      console.log(response.data);
+      
+    } catch (err) {
+      console.error('Error fetching posts:', err);
+    }
+  };
 
   const allStories = [ //displays all stories
     {
@@ -43,6 +62,9 @@ export default function LandingPage() {
       title: "Sigma5"
     },
   ]
+
+
+
 
   return (
     <>
@@ -123,18 +145,29 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="feed"> {/* creates a post in the main page */}
-          <hr />
-          <div className="top-feed">
-            <img src={DefaultPfp} className="post-pfp"/>
-            <p>Name</p>
-            <p>•</p>
-            <p>2 timmar</p>
-          </div>
+        
+        {posts.map(post => { //display all elements in array
+          return (
+            <section className="feed">
+            <hr />
+            <div className="top-feed">
+              <img src={DefaultPfp} className="post-pfp"/>
+              <p>NaN</p>
+              <p>•</p>
+              <p>{post.title}</p> {/* sets title */}
+            </div>
 
-          <img src={DefaultPfp} className="main-feed" />
+            {post.filePath && (
+              <div className="main-feed">
+                {post.filePath.match(/\.(mp4|webm)$/i) ? ( 
+                  <video src={`http://localhost:5000/${post.filePath}`} controls className="main-feed"/> //first checks if file is mp4 or webm with case sensivity, if true returns video
+                ) : (
+                  <img src={`http://localhost:5000/${post.filePath}`} alt={post.title} className="main-feed" /> //if not a video then return this
+                )}
+              </div>
+            )}
 
-          <div className="bottom-feed"> {/* adds the bottom part of the feed allowing the user to interact */}
+            <div className="bottom-feed"> {/* adds the bottom part of the feed allowing the user to interact */}
             <div className="buttons">
               <div className="buttons-left">
                 <i className="material-icons">favorite</i>
@@ -146,111 +179,14 @@ export default function LandingPage() {
             </div>
             <div className="feed-info">
               <div className="likes">65 likes</div>
-              <div className="description">
-                Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Modi recusandae sint soluta hic tempora accusantium
-                obcaecati, fuga, possimus cumque laboriosam error repudiandae
-                corporis ducimus dicta voluptate aspernatur magni vitae nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?
-              </div>
+              <div className="description">{post.description}</div>
             </div>
           </div>
-        </section>
-        <section className="feed">
-          <hr />
-          <div className="top-feed">
-            <img src={DefaultPfp} className="post-pfp"/>
-            <p>Name</p>
-            <p>•</p>
-            <p>2 timmar</p>
-          </div>
+          </section>
+          )
+        })}
+       
 
-          <img src={DefaultPfp} className="main-feed" />
-
-          <div className="bottom-feed">
-            <div className="buttons">
-              <div className="buttons-left">
-                <i className="material-icons">favorite</i>
-                <i className="material-icons">comment</i>
-              </div>
-              <div className="buttons-right">
-                <i className="material-icons">bookmark</i>
-              </div>
-            </div>
-            <div className="feed-info">
-              <div className="likes">65 likes</div>
-              <div className="description">
-                Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Modi recusandae sint soluta hic tempora accusantium
-                obcaecati, fuga, possimus cumque laboriosam error repudiandae
-                corporis ducimus dicta voluptate aspernatur magni vitae nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="feed">
-          <hr />
-          <div className="top-feed">
-            <img src={DefaultPfp} className="post-pfp"/>
-            <p>Name</p>
-            <p>•</p>
-            <p>2 timmar</p>
-          </div>
-
-          <img src={DefaultPfp} className="main-feed" />
-
-          <div className="bottom-feed">
-            <div className="buttons">
-              <div className="buttons-left">
-                <i className="material-icons">favorite</i>
-                <i className="material-icons">comment</i>
-              </div>
-              <div className="buttons-right">
-                <i className="material-icons">bookmark</i>
-              </div>
-            </div>
-            <div className="feed-info">
-              <div className="likes">65 likes</div>
-              <div className="description">
-                Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Modi recusandae sint soluta hic tempora accusantium
-                obcaecati, fuga, possimus cumque laboriosam error repudiandae
-                corporis ducimus dicta voluptate aspernatur magni vitae nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="feed">
-          <hr />
-          <div className="top-feed">
-            <img src={DefaultPfp} className="post-pfp"/>
-            <p>Name</p>
-            <p>•</p>
-            <p>2 timmar</p>
-          </div>
-
-          <img src={DefaultPfp} className="main-feed" />
-
-          <div className="bottom-feed">
-            <div className="buttons">
-              <div className="buttons-left">
-                <i class="material-icons">favorite</i>
-                <i class="material-icons">comment</i>
-              </div>
-              <div className="buttons-right">
-                <i className="material-icons">bookmark</i>
-              </div>
-            </div>
-            <div className="feed-info">
-              <div className="likes">65 likes</div>
-              <div className="description">
-                Lorem ipsum dolor sit amet consectetur, adipisicing
-                elit. Modi recusandae sint soluta hic tempora accusantium
-                obcaecati, fuga, possimus cumque laboriosam error repudiandae
-                corporis ducimus dicta voluptate aspernatur magni vitae nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?nisi?
-              </div>
-            </div>
-          </div>
-        </section>
         <PostFooter/>
       </main>
     </>
