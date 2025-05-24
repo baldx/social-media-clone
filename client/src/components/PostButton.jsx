@@ -12,9 +12,8 @@ export default function PostFooter() {
             <FeedForm />
             <footer>
                 <button className="footer-container" onClick={onClick}>
-                    +
+                    +<div>Create post</div>
                 </button>
-                <div>Create post</div>
             </footer>
         </>
     )
