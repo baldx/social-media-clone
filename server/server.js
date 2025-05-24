@@ -4,6 +4,11 @@ import mongoose from 'mongoose'; //used to interact with mongodb
 import cors from 'cors'; //allows for frontend requests from different origins
 import dotenv from 'dotenv'; //load environment variables
 import bcrypt from 'bcrypt';// hash passwords for security
+import multer from 'multer';
+import path from 'node:path'
+import router from './routes/postRoutes.js';
+import { fileURLToPath } from 'url'; // 
+
 
 // load environment variables
 dotenv.config();
@@ -18,6 +23,12 @@ const PORT = process.env.PORT || 5000;
 //middleware
 app.use(cors()); // allow cross-origin requests so frontend can communicate with backend
 app.use(express.json()); // parse JSON request so we can access request bodies
+
+const __filename = fileURLToPath(import.meta.url); //convert modules URL to a file path. example: file:///path/to/server.js'
+const __dirname = path.dirname(__filename); //gets directory containing the current file
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); //makes files in the uploads folder accessible at URLs via localhost example: http://localhost:5000/uploads/filename.jpg
+
 
 
 
@@ -88,6 +99,6 @@ app.post('/login', async (req, res) => {
 });
 
 
-
+app.use('/feed', router); //adds middleware for router which is previously imported via /feed url
 // Start server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));//starts server on defined port
