@@ -5,6 +5,8 @@ import Signup from './components/Signup'; // Signup Component
 import Navbar from './components/Navbar'; // Common Navbar Component
 import ErrorPage from './components/ErrorPage'; // Error Page Component
 import PostFooter from './components/PostButton';
+import GDPR from './components/TOS';
+
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -26,6 +28,10 @@ const Router = () => {
     {
         path: "/signup",//adds signup path
         element: <Signup />
+    },
+    {
+      path: "/signup/TOS",
+      element: <GDPR/>
     }
   ]);
 

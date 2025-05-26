@@ -315,3 +315,9 @@ hr {
 .feed-form button:hover {
     background: #0056b3;
 }
+
+#terms {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
